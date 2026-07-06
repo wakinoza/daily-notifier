@@ -1,0 +1,129 @@
+### =========================
+### Security
+### =========================
+
+# Environment variables
+.env
+.env.*
+
+# API keys / Credentials
+*.pem
+*.key
+id_rsa
+credentials
+credentials.csv
+google-service-account.json
+aws_access_key_id
+
+
+### API ### 
+config.local.json
+secrets.json
+
+# AWS
+.aws/
+
+# Local configuration
+config.local.json
+secrets.json
+
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### VS Code ###
+.vscode/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+.metadata/
+*.tmp
+*.bak
+*.swp
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
+### npm ###
+node_modules
+
+### log ###
+*.log
+logs/
+*.out
+
+### DB ###
+db.sqlite3
+dump.sql
+
+### =========================
+### Python
+### =========================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Type checker
+.mypy_cache/
+
+# Linter / Formatter
+.ruff_cache/
+
+# Python version management
+.python-version
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# General cache
+.cache/
