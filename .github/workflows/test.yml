@@ -13,5 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Run test command
-        run: echo "GitHub Actions works!"
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Python
+        run: python src/main.py
