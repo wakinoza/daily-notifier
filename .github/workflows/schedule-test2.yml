@@ -1,0 +1,16 @@
+name: Schedule Test 2 with push
+
+on:
+  workflow_dispatch:
+
+  push:
+
+  schedule:
+    - cron: "*/10 * * * *"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Hello Schedule with push"
