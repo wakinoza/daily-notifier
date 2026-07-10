@@ -1,9 +1,12 @@
 # 動作確認用
-name: GitHub Actions Test
+name: GitHub Actions cron Test
 
 # 手動実行
 on:
   workflow_dispatch:
+
+  schedule:
+  - cron: "45 4 * * *"
 
 jobs:
   test:
