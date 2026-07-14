@@ -1,0 +1,13 @@
+name: Schedule Test 4
+
+on:
+  schedule: [{cron: "*/10 * * * *"}]
+  workflow_dispatch:
+  push: {branches: ["main"]}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Schedule Test 4"
