@@ -1,4 +1,4 @@
-name: Schedule Test 2 with push
+name: Schedule Test 3 with push and ''
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
   push:
 
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: '*/10 * * * *'
 
 jobs:
   test:
