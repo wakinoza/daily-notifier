@@ -5,7 +5,7 @@ name: cron Test
 on:
   workflow_dispatch:
 
-  push :
+  # push :
 
   # schedule:
   #   - cron: '0,30 * * * *'
@@ -27,4 +27,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Python
-        run: python src/main.py
+        run: python main.py
