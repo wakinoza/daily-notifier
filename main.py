@@ -1,4 +1,4 @@
-import weather
+from src import weather
 
 def main():
     weather_json_data = weather.fetch_forecast_json()
