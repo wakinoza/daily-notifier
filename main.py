@@ -1,17 +1,11 @@
-import requests
+import weather
 
 def main():
-    URL = "https://www.jma.go.jp/bosai/forecast/data/forecast/230000.json"
-    response = requests.get(URL)
-    response.raise_for_status()
+    weather_json_data = weather.fetch_forecast_json()
 
-    weather_data = response.json()
+    weather_info = weather.get_weather(weather_json_data)
 
-    print(type(weather_data))
-    print(len(weather_data))
-    print(weather_data[0]["reportDatetime"])
-    tomorrow_weather = weather_data[0]["timeSeries"][0]["areas"][0]["weathers"][1]
-    print(tomorrow_weather)
+    print(weather_info)
 
 if __name__ == "__main__":
     main()
