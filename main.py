@@ -3,7 +3,7 @@ from datetime import date, timedelta
 
 from src.config import Settings
 from src.providers import weather_json, koyomi
-from src.formatters import weather_formatter, message
+from src.formatters import weather_formatter, koyomi_formatter, message
 from src.mailer import send_mail
 
 
@@ -30,7 +30,9 @@ def main() -> None:
     koyomi_data = koyomi.parse_koyomi_json(koyomi_json_data)
     events = koyomi.find_events(koyomi_data, target_date)
 
-    send_mail("daily-notifier", message.create_message(weather_section), settings)
+    koyomi_section = koyomi_formatter.format_koyomi_events(events, target_date)
+
+    send_mail("daily-notifier", message.create_message(weather_section, koyomi_section), settings)
 
     logger.info("daily-notifierが正常終了しました")
 
