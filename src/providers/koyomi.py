@@ -13,7 +13,7 @@ from src.providers.koyomi_models import (
 logger = getLogger(__name__)
 
 
-def fetch_koyomi_json(year):
+def fetch_koyomi_json(year: int):
     """ 暦JSONを取得する"""
 
     logger.info("暦JSONを取得します")
@@ -74,7 +74,7 @@ def parse_koyomi_json(koyomi_json_data)-> Koyomi:
     logger.info("暦JSONを解析しました")
     return koyomi
 
-def find_events(koyomi: Koyomi, target_date: date) -> tuple[KoyomiEvent, ...]:
+def find_events(koyomi: Koyomi, target_date: datetime.date) -> tuple[KoyomiEvent, ...]:
     """指定日の暦イベントを抽出する"""
 
     logger.info("指定日の暦イベントを検索します")
