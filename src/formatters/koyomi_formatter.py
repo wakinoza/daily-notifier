@@ -1,6 +1,6 @@
 from datetime import date
 
-from providers.koyomi_models import KoyomiEvent
+from src.providers.koyomi_models import KoyomiEvent
 
 
 def format_koyomi_events(

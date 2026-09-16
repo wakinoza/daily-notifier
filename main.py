@@ -26,7 +26,7 @@ def main() -> None:
     weather_section = weather_formatter.format_weather_section(weather_info)
 
     target_date = date.today() + timedelta(days=1)
-    koyomi_json_data = koyomi.fetch_koyomi(target_date.year)
+    koyomi_json_data = koyomi.fetch_koyomi_json(target_date.year)
     koyomi_data = koyomi.parse_koyomi_json(koyomi_json_data)
     events = koyomi.find_events(koyomi_data, target_date)
 

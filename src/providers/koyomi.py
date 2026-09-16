@@ -1,5 +1,5 @@
 import requests
-import date
+import datetime
 from logging import getLogger
 
 
@@ -48,7 +48,7 @@ def parse_koyomi_json(koyomi_json_data)-> Koyomi:
     try:
         events = tuple(
             KoyomiEvent(
-                date=date.fromisoformat(event["date"]),
+                date=datetime.date.fromisoformat(event["date"]),
                 name=event["name"],
             )
             for event in koyomi_json_data["sekki"]
