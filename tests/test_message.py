@@ -7,10 +7,7 @@ def test_create_message_with_koyomi():
 
     result = create_message(weather_section, koyomi_section)
 
-    assert result == (
-        "明日の天気は晴れです。\n\n"
-        "明日は【白露】です。"
-    )
+    assert result == ("明日の天気は晴れです。\n\n明日は【白露】です。")
 
 
 def test_create_message_without_koyomi():

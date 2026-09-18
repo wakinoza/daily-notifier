@@ -14,7 +14,7 @@ logger = getLogger(__name__)
 
 
 def fetch_koyomi_json(year: int):
-    """ 暦JSONを取得する"""
+    """暦JSONを取得する"""
 
     logger.info("暦JSONを取得します")
     url = f"{KOYOMI_API_URL}{year}"
@@ -41,8 +41,9 @@ def fetch_koyomi_json(year: int):
     logger.info("暦JSONを取得しました")
     return koyomi_json_data
 
-def parse_koyomi_json(koyomi_json_data)-> Koyomi:
-    """ 暦JSONをDataclassに解析する"""
+
+def parse_koyomi_json(koyomi_json_data) -> Koyomi:
+    """暦JSONをDataclassに解析する"""
 
     logger.info("暦JSONを解析します")
     try:
@@ -74,16 +75,13 @@ def parse_koyomi_json(koyomi_json_data)-> Koyomi:
     logger.info("暦JSONを解析しました")
     return koyomi
 
+
 def find_events(koyomi: Koyomi, target_date: datetime.date) -> tuple[KoyomiEvent, ...]:
     """指定日の暦イベントを抽出する"""
 
     logger.info("指定日の暦イベントを検索します")
 
-    events = tuple(
-        event
-        for event in koyomi.events
-        if event.date == target_date
-    )
+    events = tuple(event for event in koyomi.events if event.date == target_date)
 
     logger.info("指定日の暦イベントを検索しました")
     return events

@@ -16,7 +16,6 @@ from src.providers.koyomi_models import (
 )
 
 
-
 def test_fetch_koyomi_json_success():
     mock_response = Mock()
     mock_response.json.return_value = {"test": "data"}

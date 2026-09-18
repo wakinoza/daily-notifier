@@ -32,7 +32,8 @@ def main() -> None:
 
     koyomi_section = koyomi_formatter.format_koyomi_events(events, target_date)
 
-    send_mail("daily-notifier", message.create_message(weather_section, koyomi_section), settings)
+    mail_message = message.create_message(weather_section, koyomi_section)
+    send_mail("daily-notifier", mail_message, settings)
 
     logger.info("daily-notifierが正常終了しました")
 
