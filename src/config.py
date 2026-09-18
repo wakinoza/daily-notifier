@@ -17,6 +17,9 @@ JMA_FORECAST_AREA_NAME = "東部"
 # 気温を取得する地点
 JMA_TEMPERATURE_AREA_NAME = "名古屋"
 
+# 暦JSON URL
+KOYOMI_API_URL = "https://koyomi.techjunk.net/sekki/"
+
 # 機密情報ファイルのローカル上のパス
 ENV_PATH = Path(r"C:\Secrets\daily-notifier.env")
 

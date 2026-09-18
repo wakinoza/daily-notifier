@@ -2,7 +2,7 @@
 
 GitHub Actionsを利用して、翌日の生活情報を毎日夕方に自動通知するシステムです。
 
-現在はMVPが完成しており、GitHub Actionsから毎日自動実行され、気象庁の天気予報をメール通知できる状態です。
+GitHub Actionsから毎日自動実行され、気象庁の翌日の天気予報と暦情報をメール通知できる状態です。
 
 今後は、追加機能の実装を進める予定です。
 
@@ -12,7 +12,7 @@ GitHub Actionsを利用して、翌日の生活情報を毎日夕方に自動通
 
 夕方は、家事や子どもの世話などで忙しく、翌日の生活に必要な情報を複数のWebサイトやアプリで確認するのが負担でした。
 
-daily-notifierは、翌日の天気や降水確率などの生活情報をまとめて通知することで、必要な情報を短時間で確認できるようにすることを目的としています。
+daily-notifierは、翌日の天気や降水確率、暦などの生活情報をまとめて通知することで、必要な情報を短時間で確認できるようにすることを目的としています。
 
 また、SNSやアプリを開く機会を減らし、広告やショート動画などに時間を奪われないデジタルデトックス環境を目指しています。
 
@@ -26,8 +26,9 @@ daily-notifierは、翌日の天気や降水確率などの生活情報をまと
 - 最高気温
 - 最低気温
 - 予報取得時刻
+- 明日の暦イベント
 
-<img width="677" height="548" alt="スクリーンショット 2026-08-04 122858" src="https://github.com/user-attachments/assets/df5ff01f-01da-4437-91e7-f8b0f6755668" />
+
 
 ---
 
@@ -35,29 +36,39 @@ daily-notifierは、翌日の天気や降水確率などの生活情報をまと
 ## 現在の開発状況
 
 
-* プロジェクトの作成
-* Gitリポジトリの作成
-* 開発方針・設計ドキュメントの整備
-* GitHub ActionsによるPython実行
-* GitHub Actionsの定期実行
-* 気象庁JSONの取得
-* JSONから必要な情報の抽出
-* Pythonモジュール分割
-* 取得情報を人間に読みやす形式に変換
-*  メール送信
-*  GitHub Secretsによる機密情報管理
-*  dataclass による天気情報の型付きデータ構造
-*  JSON抽出処理の整理
-*  エリア検索の共通化
-*  型注釈
-*  Ruffによるコード整形
-*  ログの実装
-*  Settings によるメール関連環境変数の管理
-*  環境変数の存在・空文字チェック
-*  Local / GitHub Actionsの環境差を吸収
-*  pytestの実装
-*  CIの導入（pytest、Ruffによるコードチェックとフォーマットチェック）
-*  GitHubのブランチ保護にRequired Status Checkを設定
+- プロジェクト基盤
+    - プロジェクトの作成
+    - Gitリポジトリの作成
+    - 開発方針・設計ドキュメントの整備
+- GitHub Actionsによる自動実行
+    - GitHub ActionsによるPython実行
+    - GitHub Actionsの定期実行
+- 天気情報の取得・加工
+    - 気象庁JSONの取得
+    - JSONから必要な情報の抽出
+    - dataclassによる天気情報の型付きデータ構造
+    - JSON抽出処理の整理
+    - エリア検索の共通化
+    - 取得情報を人間に読みやすい形式に変換
+- メール通知
+    - メール送信
+    - 暦情報のメール通知
+- 暦情報の取得
+    - 暦情報APIの取得
+- 設定・機密情報管理
+    - GitHub Secretsによる機密情報管理
+    - Settingsによるメール関連環境変数の管理
+    - 環境変数の存在・空文字チェック
+    - Local / GitHub Actionsの環境差を吸収
+- コード品質・保守性
+    - Pythonモジュール分割
+    - 型注釈
+    - Ruffによるコード整形
+    - ログの実装
+- テスト・CI
+    - pytestの実装
+    - CIの導入（pytest、Ruffによるコードチェックとフォーマットチェック）
+    - GitHubのブランチ保護にRequired Status Checkを設定
 
 
 ---
@@ -93,15 +104,20 @@ daily-notifier/
 │   ├── mailer.py
 │   ├── formatters/
 │   │   ├── message.py
-│   │   └── weather_formatter.py
+│   │   ├── weather_formatter.py
+│   │   └── koyomi_formatter.py
 │   └── providers/
 │       ├── weather_json_models.py
-│       └── weather_json.py
+│       ├── weather_json.py
+│       ├── koyomi_models.py
+│       └── koyomi.py
 ├── tests/
 │   ├── test_config.py
 │   ├── test_mailer.py
 │   ├── test_weather_formatter.py
-│   └── test_weather_json.py
+│   ├── test_weather_json.py
+│   ├── test_koyomi_formatter.py
+│   └── test_koyomi.py
 ├── main.py
 ├── .venv/（Git管理外）
 ├── .vscode/（Git管理外）
