@@ -28,6 +28,7 @@ daily-notifierは、翌日の天気や降水確率、暦などの生活情報を
 - 予報取得時刻
 - 明日の暦イベント
 
+<img width="448" height="569" alt="通知メールのスクリーンショット" src="https://github.com/user-attachments/assets/278a5690-822c-4390-a5b0-46668b5e7805" />
 
 
 ---
